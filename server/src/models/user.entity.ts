@@ -10,7 +10,7 @@ import {
 
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import Note from '@modules/notes/infra/typeorm/entities/Note';
+import Note from './note.entity';
 
 @ObjectType()
 @Entity('users')

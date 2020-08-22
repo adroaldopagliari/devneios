@@ -12,6 +12,7 @@
     "outDir": "./dist",
     "baseUrl": "./",
     "rootDir": "./",
+    "allowJs": true,
     "incremental": true,
     "paths": {
       "@modules/*": ["src/modules/*"],

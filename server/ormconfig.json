@@ -8,13 +8,13 @@
     "password": "docker",
     "database": "devneios",
     "entities": [
-      "./src/modules/**/infra/typeorm/entities/*.ts"
+      "./src/models/*.ts"
     ],
     "migrations": [
-      "./src/shared/infra/typeorm/migrations/*.ts"
+      "./src/migrations/*.ts"
     ],
     "cli": {
-      "migrationsDir": "./src/shared/infra/typeorm/migrations"
+      "migrationsDir": "./src/migrations"
     }
   }
 ]

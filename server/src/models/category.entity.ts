@@ -10,7 +10,7 @@ import {
 
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import Note from './Note';
+import Note from './note.entity';
 
 @ObjectType()
 @Entity()
@@ -24,11 +24,9 @@ export default class Category {
   @Column()
   name: string;
 
-  @Field()
   @TreeChildren()
   children: Category[];
 
-  @Field()
   @TreeParent()
   parent: Category;
 

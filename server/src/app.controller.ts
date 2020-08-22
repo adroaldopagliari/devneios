@@ -7,6 +7,6 @@ export default class AppController {
 
   @Get()
   async getHello(): Promise<string> {
-    return `There are: ${this.repoService.userRepo.count()} users.`;
+    return `There are: ${await this.repoService.userRepo.count()} users.`;
   }
 }

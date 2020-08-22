@@ -1,8 +1,8 @@
 import { Global, Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import User from '@modules/users/infra/typeorm/entities/User';
-import Note from '@modules/notes/infra/typeorm/entities/Note';
-import Category from '@modules/notes/infra/typeorm/entities/Category';
+import User from './models/user.entity';
+import Note from './models/note.entity';
+import Category from './models/category.entity';
 import RepoService from './repo.service';
 
 @Global()

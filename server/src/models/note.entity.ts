@@ -12,8 +12,8 @@ import {
 
 import { Field, ObjectType } from '@nestjs/graphql';
 
-import User from '@modules/users/infra/typeorm/entities/User';
-import Category from './Category';
+import User from './user.entity';
+import Category from './category.entity';
 
 @ObjectType()
 @Entity('notes')
