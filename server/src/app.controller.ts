@@ -1,12 +1,12 @@
 import { Controller, Get } from '@nestjs/common';
-import AppService from './app.service';
+import RepoService from './repo.service';
 
 @Controller()
 export default class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly repoService: RepoService) {}
 
   @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  async getHello(): Promise<string> {
+    return `There are: ${this.repoService.userRepo.count()} users.`;
   }
 }

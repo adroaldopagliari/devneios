@@ -1,5 +1,5 @@
 import { NestFactory } from '@nestjs/core';
-import './shared/infra/typeorm';
+// import './shared/infra/typeorm';
 import AppModule from './app.module';
 
 async function bootstrap() {
