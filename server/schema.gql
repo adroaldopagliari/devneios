@@ -33,6 +33,7 @@ type Query {
 type Mutation {
   createOrLoginUser(data: UserInput!): User!
   createNote(data: NoteInput!): Note!
+  deleteNote(data: DeleteNoteInput!): Note
 }
 
 input UserInput {
@@ -51,4 +52,8 @@ input NoteUserInput {
 
 input NoteUserConnectInput {
   id: String!
+}
+
+input DeleteNoteInput {
+  noteId: String!
 }

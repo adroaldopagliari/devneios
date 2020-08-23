@@ -8,7 +8,7 @@ import {
   ResolveField,
 } from '@nestjs/graphql';
 import Note from 'src/models/note.entity';
-import NoteInput from 'src/input/note.input';
+import { NoteInput, DeleteNoteInput } from 'src/input/note.input';
 import User from 'src/models/user.entity';
 import RepoService from '../repo.service';
 
@@ -42,6 +42,21 @@ class NoteResolver {
       user_id: input.user.connect.id,
     });
     return this.repoService.noteRepo.save(note);
+  }
+
+  @Mutation(() => Note, { nullable: true })
+  public async deleteNote(@Args('data') input: DeleteNoteInput): Promise<Note> {
+    const note = await this.repoService.noteRepo.findOne(input.noteId);
+
+    if (!note) {
+      return null;
+    }
+
+    await this.repoService.noteRepo.delete({
+      id: input.noteId,
+    });
+
+    return note;
   }
 
   @ResolveField(() => User)

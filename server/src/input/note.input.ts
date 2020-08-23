@@ -18,7 +18,7 @@ class NoteUserInput {
 }
 
 @InputType()
-class NoteInput {
+export class NoteInput {
   @Field()
   readonly content: string;
 
@@ -26,4 +26,8 @@ class NoteInput {
   readonly user: NoteUserInput;
 }
 
-export default NoteInput;
+@InputType()
+export class DeleteNoteInput {
+  @Field()
+  readonly noteId: string;
+}
