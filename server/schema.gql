@@ -24,10 +24,10 @@ type Note {
 
 type Query {
   getUsers: [User!]!
-  getUser(id: Float!): User
+  getUser(id: String!): User
   getNotes: [Note!]!
-  getNotesFromUser(user_id: Float!): [Note!]!
-  getNote(id: Float!): Note
+  getNotesFromUser(user_id: String!): [Note!]!
+  getNote(id: String!): Note
 }
 
 type Mutation {

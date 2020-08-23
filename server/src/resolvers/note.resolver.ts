@@ -23,7 +23,7 @@ class NoteResolver {
 
   @Query(() => [Note])
   public async getNotesFromUser(
-    @Args('user_id') user_id: number,
+    @Args('user_id') user_id: string,
   ): Promise<Note[]> {
     return this.repoService.noteRepo.find({
       where: { user_id },
@@ -31,7 +31,7 @@ class NoteResolver {
   }
 
   @Query(() => Note, { nullable: true })
-  public async getNote(@Args('id') id: number): Promise<Note> {
+  public async getNote(@Args('id') id: string): Promise<Note> {
     return this.repoService.noteRepo.findOne(id);
   }
 
