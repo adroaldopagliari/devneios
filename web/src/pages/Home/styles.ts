@@ -27,6 +27,12 @@ export const Content = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+
+  form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 /* export const Logo = styled.div`
@@ -38,6 +44,8 @@ export const Content = styled.div`
 `; */
 
 export const Button = styled.button`
+  margin-top: 20px;
+
   border: none;
   min-width: 220px;
   padding: 10px;
@@ -48,7 +56,6 @@ export const Button = styled.button`
   justify-content: center;
   align-items: center;
 
-  margin: 0 auto;
   transition: background-color 0.2s ease-in-out;
 
   span {
@@ -62,4 +69,16 @@ export const Button = styled.button`
   }
 `;
 
-export const Input = styled.input``;
+export const Input = styled.input`
+  background: transparent;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 5px 10px;
+
+  color: #fff;
+
+  &::placeholder {
+    color: #fff;
+    opacity: 0.3;
+  }
+`;

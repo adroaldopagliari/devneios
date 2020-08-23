@@ -7,11 +7,15 @@ import { Routes } from './routes';
 import history from './services/history';
 import api from './services/api';
 
+import GlobalStyle from './styles/global';
+
 const App: React.FC = () => {
   return (
     <ApolloProvider client={api}>
       <Router history={history}>
         <Routes />
+
+        <GlobalStyle />
       </Router>
     </ApolloProvider>
   );
