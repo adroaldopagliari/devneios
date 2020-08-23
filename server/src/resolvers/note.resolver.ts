@@ -6,11 +6,15 @@ import {
   Resolver,
   Parent,
   ResolveField,
+  Subscription,
 } from '@nestjs/graphql';
+import { PubSub } from 'graphql-subscriptions';
 import Note from 'src/models/note.entity';
 import { NoteInput, DeleteNoteInput } from 'src/input/note.input';
 import User from 'src/models/user.entity';
 import RepoService from '../repo.service';
+
+export const pubSub = new PubSub();
 
 @Resolver(() => Note)
 class NoteResolver {
@@ -41,7 +45,12 @@ class NoteResolver {
       content: input.content,
       user_id: input.user.connect.id,
     });
-    return this.repoService.noteRepo.save(note);
+
+    const response = await this.repoService.noteRepo.save(note);
+
+    pubSub.publish('noteAdded', { noteAdded: { note } });
+
+    return response;
   }
 
   @Mutation(() => Note, { nullable: true })
@@ -57,6 +66,11 @@ class NoteResolver {
     });
 
     return note;
+  }
+
+  @Subscription(() => Note)
+  noteAdded() {
+    return pubSub.asyncIterator('noteAdded');
   }
 
   @ResolveField(() => User)

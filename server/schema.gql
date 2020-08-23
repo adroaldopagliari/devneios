@@ -58,3 +58,7 @@ input DeleteNoteInput {
   noteId: String!
   userId: String!
 }
+
+type Subscription {
+  noteAdded: Note!
+}
