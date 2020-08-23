@@ -18,7 +18,7 @@ class UserResolver {
   }
 
   @Mutation(() => User)
-  public async createNote(@Args('data') input: UserInput): Promise<User> {
+  public async createUser(@Args('data') input: UserInput): Promise<User> {
     const user = this.repoService.userRepo.create({ email: input.email });
     return this.repoService.userRepo.save(user);
   }

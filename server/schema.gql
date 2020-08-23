@@ -31,7 +31,12 @@ type Query {
 }
 
 type Mutation {
+  createUser(data: UserInput!): User!
   createNote(data: NoteInput!): Note!
+}
+
+input UserInput {
+  email: String!
 }
 
 input NoteInput {
@@ -46,8 +51,4 @@ input NoteUserInput {
 
 input NoteUserConnectInput {
   id: String!
-}
-
-input UserInput {
-  email: String!
 }
