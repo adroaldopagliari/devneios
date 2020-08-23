@@ -1,7 +1,25 @@
 import React from 'react';
+import { History } from 'history';
+import { IoLogoGithub } from 'react-icons/io';
 
-import './styles.css';
+import { Container, Content, Button, Logo } from './styles';
 
-export const Home: React.FC = () => {
-  return <h1>Home</h1>;
+type Props = {
+  history: History;
+};
+
+export const Home: React.FC<Props> = ({ history }) => {
+  return (
+    <Container>
+      <Content>
+        <Logo />
+        <form>
+          <Button onClick={() => history.push('/dashboard')}>
+            <IoLogoGithub size={36} color="#fff" />
+            <span>Login with Github</span>
+          </Button>
+        </form>
+      </Content>
+    </Container>
+  );
 };
