@@ -1,13 +1,19 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/react-hooks';
+import { Router } from 'react-router-dom';
 
 import { Routes } from './routes';
 
+import history from './services/history';
+import api from './services/api';
+
 const App: React.FC = () => {
   return (
-    <Router>
-      <Routes />
-    </Router>
+    <ApolloProvider client={api}>
+      <Router history={history}>
+        <Routes />
+      </Router>
+    </ApolloProvider>
   );
 };
 

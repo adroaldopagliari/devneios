@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-import stars from '../../assets/images/stars.svg';
-import logo from '../../assets/images/logo.svg';
-
 export const Container = styled.div`
   position: relative;
   height: 100vh;
@@ -21,7 +18,6 @@ export const Container = styled.div`
     height: 706.125px;
     opacity: 0.2;
     min-height: 100vh;
-    background: url(${stars}) top center repeat-x;
     z-index: 0;
   }
 `;
@@ -33,13 +29,13 @@ export const Content = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-export const Logo = styled.div`
+/* export const Logo = styled.div`
   background: url(${logo}) center no-repeat;
   background-size: cover;
   width: 264px;
   height: 62px;
   margin-bottom: 60px;
-`;
+`; */
 
 export const Button = styled.button`
   border: none;
@@ -65,3 +61,5 @@ export const Button = styled.button`
     background-color: rgba(17, 17, 17, 0.8);
   }
 `;
+
+export const Input = styled.input``;
