@@ -1,7 +1,14 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+
+import { Routes } from './routes';
 
 const App: React.FC = () => {
-  return <h1>Devneios</h1>;
+  return (
+    <Router>
+      <Routes />
+    </Router>
+  );
 };
 
 export default App;
