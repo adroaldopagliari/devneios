@@ -18,7 +18,7 @@ import Note from './note.entity';
 export default class Category {
   @Field()
   @PrimaryGeneratedColumn('uuid')
-  id: number;
+  id: string;
 
   @Field()
   @Column()

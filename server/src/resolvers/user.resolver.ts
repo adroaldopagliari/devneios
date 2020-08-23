@@ -3,7 +3,7 @@ import User from 'src/models/user.entity';
 import UserInput from 'src/input/user.input';
 import RepoService from '../repo.service';
 
-@Resolver()
+@Resolver(() => User)
 class UserResolver {
   constructor(private readonly repoService: RepoService) {}
 
@@ -18,7 +18,7 @@ class UserResolver {
   }
 
   @Mutation(() => User)
-  public async createAuthor(@Args('data') input: UserInput): Promise<User> {
+  public async createNote(@Args('data') input: UserInput): Promise<User> {
     const user = this.repoService.userRepo.create({ email: input.email });
     return this.repoService.userRepo.save(user);
   }

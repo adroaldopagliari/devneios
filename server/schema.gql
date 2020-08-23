@@ -1,0 +1,53 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: String!
+  email: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Note {
+  id: String!
+  content: String!
+  user_id: String!
+  user: User!
+  getUser: User!
+}
+
+type Query {
+  getUsers: [User!]!
+  getUser(id: Float!): User
+  getNotes: [Note!]!
+  getNotesFromUser(user_id: Float!): [Note!]!
+  getNote(id: Float!): Note
+}
+
+type Mutation {
+  createNote(data: NoteInput!): Note!
+}
+
+input NoteInput {
+  content: String!
+  user: NoteUserInput!
+}
+
+input NoteUserInput {
+  connect: NoteUserConnectInput
+  create: UserInput
+}
+
+input NoteUserConnectInput {
+  id: String!
+}
+
+input UserInput {
+  email: String!
+}
