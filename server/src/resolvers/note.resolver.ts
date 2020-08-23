@@ -46,11 +46,11 @@ class NoteResolver {
       user_id: input.user.connect.id,
     });
 
-    const response = await this.repoService.noteRepo.save(note);
+    await this.repoService.noteRepo.save(note);
 
-    pubSub.publish('noteAdded', { noteAdded: { note } });
+    pubSub.publish('noteAdded', { noteAdded: note });
 
-    return response;
+    return note;
   }
 
   @Mutation(() => Note, { nullable: true })
