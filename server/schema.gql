@@ -56,4 +56,5 @@ input NoteUserConnectInput {
 
 input DeleteNoteInput {
   noteId: String!
+  userId: String!
 }

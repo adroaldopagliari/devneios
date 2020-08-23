@@ -48,7 +48,7 @@ class NoteResolver {
   public async deleteNote(@Args('data') input: DeleteNoteInput): Promise<Note> {
     const note = await this.repoService.noteRepo.findOne(input.noteId);
 
-    if (!note) {
+    if (!note || note.user_id !== input.userId) {
       return null;
     }
 

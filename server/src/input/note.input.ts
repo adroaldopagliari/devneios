@@ -30,4 +30,7 @@ export class NoteInput {
 export class DeleteNoteInput {
   @Field()
   readonly noteId: string;
+
+  @Field()
+  readonly userId: string;
 }
