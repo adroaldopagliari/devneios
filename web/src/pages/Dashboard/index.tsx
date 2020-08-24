@@ -2,7 +2,7 @@ import React from 'react';
 import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 
-import { Container } from './styles';
+import { Container, Message } from './styles';
 
 interface Note {
   id: string;
@@ -30,10 +30,13 @@ export const Dashboard: React.FC = () => {
   if (loading) return <p>Loading ...</p>;
 
   return (
-    <div>
+    <Container>
       {data?.getNotes.map((item) => (
-        <div key={item.id}>{item.content}</div>
+        <Message key={item.id}>
+          <span>{item.user.email}</span> <br />
+          <p>{item.content}</p>
+        </Message>
       ))}
-    </div>
+    </Container>
   );
 };

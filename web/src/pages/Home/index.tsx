@@ -36,7 +36,7 @@ export const Home: React.FC<Props> = ({ history }) => {
     e.preventDefault();
 
     if (!input) {
-      alert('Inser a valid e-mail');
+      alert('Insert a valid e-mail');
       return;
     }
 
